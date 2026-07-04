@@ -1,0 +1,36 @@
+/* Hide Streamlit Footer */
+
+footer {
+    visibility: hidden;
+}
+
+/* Hide Streamlit Menu */
+
+#MainMenu {
+    visibility: hidden;
+}
+
+/* Remove Top Padding */
+
+.block-container {
+
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+
+}
+
+/* KPI Cards */
+
+div[data-testid="metric-container"] {
+
+    background-color: white;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    border: 1px solid #EAEAEA;
+
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.08);
+
+}
