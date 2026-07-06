@@ -7,6 +7,6 @@ __pycache__/
 
 .streamlit/secrets.toml
 
-artifacts/*.pkl
+
 
 .DS_Store
