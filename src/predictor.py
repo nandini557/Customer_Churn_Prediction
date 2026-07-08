@@ -1,15 +1,31 @@
+import os
+import joblib
+import pandas as pd
+
+
 class ChurnPredictor:
     """
-    Temporary predictor for deployment testing.
-    This bypasses loading the model pipeline.
+    Loads the trained pipeline and performs predictions.
     """
 
     def __init__(self):
-        self.pipeline = None
+
+        project_root = os.path.dirname(
+            os.path.dirname(os.path.abspath(__file__))
+        )
+
+        pipeline_path = os.path.join(
+            project_root,
+            "artifacts",
+            "customer_churn_pipeline.pkl"
+        )
+
+        self.pipeline = joblib.load(pipeline_path)
 
     def predict(self, df):
-        # Return dummy predictions
-        predictions = ["No"] * len(df)
-        probabilities = [0.0] * len(df)
 
-        return predictions, probabilities
+        predictions = self.pipeline.predict(df)
+
+        probabilities = self.pipeline.predict_proba(df)
+
+        return predictions, probabilities[:, 1]
